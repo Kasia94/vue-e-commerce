@@ -1,23 +1,153 @@
 {
-    "categories": [{"id": 1, "name":"On", "sub": null},
-                {"id": 2, "name":"Skarpety", "sub":1},
-                {"id": 3, "name":"Bielizna", "sub":1},
-                {"id": 4, "name":"Stopki", "sub":1},
-                 {"id":5, "name":"Ona", "sub": null},
-                {"id":6, "name":"Bielizna", "sub":5},
-                 {"id":7, "name":"Biustonosze", "sub": 6},
-                 {"id":8, "name":"Majtki", "sub": 6},
-                  {"id":9, "name":"Bielizna nocna", "sub": 6},
-                  {"id":10, "name":"Rajstopy", "sub": 5},
-                  {"id":11, "name":"Classic", "sub": 10},
-                  {"id":12, "name":"Faschion", "sub": 10},
-                  {"id":13, "name":"Bawełniane", "sub": 10},
-                  {"id":14, "name":"Pończochy", "sub": 5},
-                    {"id":15, "name":"Skarpetki", "sub": 5},
-                    {"id":16, "name":"Legginsy", "sub": 5},
-                     {"id":17, "name":"Dziecko", "sub": null},
-                     {"id":18, "name":"Rajstopki", "sub": 17},
-                     {"id":19, "name":"Skarpetki", "sub": 17},
-                     {"id":20, "name":"Dodatki", "sub": null}],
-    "products": []
+    "categories": [
+        {
+            "id": 1,
+            "name": "On",
+            "sub": null
+        },
+        {
+            "id": 2,
+            "name": "Skarpety",
+            "sub": 1
+        },
+        {
+            "id": 3,
+            "name": "Bielizna",
+            "sub": 1
+        },
+        {
+            "id": 4,
+            "name": "Stopki",
+            "sub": 1
+        },
+        {
+            "id": 5,
+            "name": "Ona",
+            "sub": null
+        },
+        {
+            "id": 6,
+            "name": "Bielizna",
+            "sub": 5
+        },
+        {
+            "id": 7,
+            "name": "Biustonosze",
+            "sub": 6
+        },
+        {
+            "id": 8,
+            "name": "Majtki",
+            "sub": 6
+        },
+        {
+            "id": 9,
+            "name": "Bielizna nocna",
+            "sub": 6
+        },
+        {
+            "id": 10,
+            "name": "Rajstopy",
+            "sub": 5
+        },
+        {
+            "id": 11,
+            "name": "Classic",
+            "sub": 10
+        },
+        {
+            "id": 12,
+            "name": "Faschion",
+            "sub": 10
+        },
+        {
+            "id": 13,
+            "name": "Bawełniane",
+            "sub": 10
+        },
+        {
+            "id": 14,
+            "name": "Pończochy",
+            "sub": 5
+        },
+        {
+            "id": 15,
+            "name": "Skarpetki",
+            "sub": 5
+        },
+        {
+            "id": 16,
+            "name": "Legginsy",
+            "sub": 5
+        },
+        {
+            "id": 17,
+            "name": "Dziecko",
+            "sub": null
+        },
+        {
+            "id": 18,
+            "name": "Rajstopki",
+            "sub": 17
+        },
+        {
+            "id": 19,
+            "name": "Skarpetki",
+            "sub": 17
+        },
+        {
+            "id": 20,
+            "name": "Dodatki",
+            "sub": null
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "POUPEE BIUSTONOSZ Z FALBANKĄ ASHLEE",
+            "price": 149.90,
+            "color": "BLACK/GOLD",
+            "category": 7,
+            "images": [
+                {
+                    "id": 1,
+                    "url": "https://e-marilyn.pl/media/res/products/125094/520x780/poupee-biustonosz-z-falbanka-ashlee_1.jpg"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "POUPEE MIĘKKI KABARETKOWY BIUSTONOSZ VIVIEN",
+            "price": 159.90,
+            "color": "BLACK",
+            "category": 7,
+            "images": [
+                {
+                    "id": 2,
+                    "url": "https://e-marilyn.pl/media/res/products/124992/520x780/poupee-miekki-kabaretkowy-biustonosz-vivien_5.jpg"
+                },
+                {
+                    "id": 3,
+                    "url": "https://e-marilyn.pl/media/res/products/124992/520x780/poupee-miekki-kabaretkowy-biustonosz-vivien_6.jpg"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "POUPEE MIĘKKI BIUSTONOSZ Z TIULU I KORONKI MISTRESS",
+            "price": 139.90,
+            "color": "RED/GREY",
+            "category": 7,
+            "images": [
+                {
+                    "id": 4,
+                    "url": "https://e-marilyn.pl/media/res/products/124905/520x780/poupee-miekki-biustonosz-z-tiulu-i-koronki-mistress_8.jpg"
+                },
+                {
+                    "id": 5,
+                    "url": "https://e-marilyn.pl/media/res/products/124905/520x780/poupee-miekki-biustonosz-z-tiulu-i-koronki-mistress_2.jpg"
+                }
+            ]
+        }
+    ]
 }
