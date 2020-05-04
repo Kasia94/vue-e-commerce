@@ -1,20 +1,19 @@
 <template>
-
   <div class="mt-4">
     <h4>Left and Right (or Start and End)</h4>
     <b-card
-      v-for="product in shopProducts" :key='product.id'
-      :img-src='product.image'
+      v-for="product in shopProducts"
+      :key="product.id"
+      :img-src="product.image"
       img-alt="Card image"
       img-left
       class="mb-3"
     >
       <b-card-text>
-        {{product.description}}
+        {{ product.description }}
       </b-card-text>
     </b-card>
-
-</div>
+  </div>
 </template>
 <script>
 export default {
