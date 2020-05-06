@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
 Vue.use(VueRouter)
-
 const routes = [
   {
     path: '/',
@@ -24,14 +22,26 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: () => import(/* webpackChunkName: "products" */ '../views/Products.vue')
+  },
+  {
+    path: '/category',
+    component: () => import(/* webpackChunkName: "category" */ '../views/Category.vue'),
+    children: [
+      {
+        path: '/',
+        component: () => import(/* webpackChunkName: "category" */ '../components/CategoryNotSelected.vue')
+      },
+      {
+        path: ':id',
+        props: route => ({ id: Number(route.params.id) || null }),
+        component: () => import(/* webpackChunkName: "category" */ '../components/ProductsList.vue')
+      }
+    ]
   }
-
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
-
 export default router

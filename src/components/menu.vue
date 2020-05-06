@@ -31,6 +31,9 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item>
+            <router-link to="/category">
+              Categories
+            </router-link>
             <router-link to="/about">
               About us
             </router-link>
