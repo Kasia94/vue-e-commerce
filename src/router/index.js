@@ -19,11 +19,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "static" */ '../views/Contact.vue')
   },
   {
-    path: '/products',
-    name: 'Products',
-    component: () => import(/* webpackChunkName: "products" */ '../views/Products.vue')
-  },
-  {
     path: '/category',
     component: () => import(/* webpackChunkName: "category" */ '../views/Category.vue'),
     children: [
@@ -37,6 +32,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "category" */ '../components/ProductsList.vue')
       }
     ]
+  },
+  {
+    path: '/product/:id',
+    props: route => ({ id: Number(route.params.id) || null }),
+    component: () => import(/* webpackChunkName: "product" */ '../views/ProductPage.vue')
   }
 ]
 const router = new VueRouter({

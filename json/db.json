@@ -108,6 +108,8 @@
             "price": 149.90,
             "color": "BLACK/GOLD",
             "category": 7,
+            "size": ["S","M","L"],
+            "description": "Ashlee - czarny komplet z linii Hot! Biustonosz na fiszbinie z odkrywającą od dołu pierś miseczką. Górną część miski stanowi zaś plisowana, czarna falbanka, lekko unosząca się na biuście, która kusi odkrywając krągłości biustu. Zamiast klasycznych boczków znajdują się dwa ramiączka ze złotą nitką. Regulatorki ułatwiają dobór obwodu. Skład: 80% poliamid, 20% elastan",
             "images": [
                 {
                     "id": 1,
@@ -121,6 +123,8 @@
             "price": 159.90,
             "color": "BLACK",
             "category": 7,
+            "size": ["S","M","L"],
+            "description": "Vivien – super sexy komplet z elastycznej siatki o dużym oczku wykończony lamówką. Biustonosz posiada fiszbiny modelujące biust. Miseczki są miękkie i mają zaszewki oraz ozdobne paseczki wychodzące z górnej części misek stanowiąc główną ozdobę tego kompletu. Baskinę zdobi kluczyk w kolorze różowego złota. Vivien to ekskluzywna erotyka mająca zastosowanie na co dzień, zapewniając komfort dzięki wysokiej jakości surowców, miłych w dotyku. Skład: 80% poliamid, 20% elastan",
             "images": [
                 {
                     "id": 2,
@@ -138,6 +142,8 @@
             "price": 139.90,
             "color": "RED/GREY",
             "category": 7,
+            "size": ["S","M","L"],
+            "description": "Mistress - biustonosz miękki, którego bazę stanowi tiul imitujący skórę, stąd wrażenie nieobecności surowca na boczkach i górnej części miski. Dolną część miseczki z zaszewką stanowi koronka. Biustonosz dobrze podtrzymuje piersi, ładnie je wyokrąglając. Satynowe lamówki nawiązują do obrysów biustonosza z taśm i nadają glamurowy charakter. Zapinanie na plecach za pomocą haftki. Model ten występuje w dwóch zestawach kolorów: czerwieni z kolorem skin oraz navy z kolorem skin. Skład: 80% poliamid, 20% elastan",
             "images": [
                 {
                     "id": 4,

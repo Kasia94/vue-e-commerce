@@ -19,17 +19,15 @@
 </template>
 
 <script>
+import PriceMixin from './../mixins/product.price.mixin'
 export default {
+  mixins: [
+    PriceMixin
+  ],
   props: {
     product: {
       type: Object,
       default: () => {}
-    }
-  },
-  computed: {
-    price () {
-      const nf = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' })
-      return nf.format(this.product.price)
     }
   }
 }
@@ -37,9 +35,6 @@ export default {
 
 <style lang="scss">
 article .card-title {
-    font-size: 1rem;
-}
-article .card-img {
-
+  font-size: 1rem;
 }
 </style>

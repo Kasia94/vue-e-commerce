@@ -5,7 +5,7 @@
         <List :items="category" />
       </b-col>
       <b-col cols="8">
-        <router-view :key="$router.path" />
+        <router-view />
       </b-col>
     </b-row>
   </b-container>

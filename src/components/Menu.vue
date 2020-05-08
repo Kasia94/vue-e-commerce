@@ -17,19 +17,6 @@
         is-nav
       >
         <b-navbar-nav>
-          <b-nav-item-dropdown right>
-            <template v-slot:button-content>
-              <em>Products</em>
-            </template>
-            <b-dropdown-item
-              v-for="i in 3"
-              :key="i"
-            >
-              <router-link to="/products">
-                Products
-              </router-link>
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
           <b-nav-item>
             <router-link to="/category">
               Categories

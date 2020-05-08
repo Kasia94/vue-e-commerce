@@ -32,8 +32,11 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
-      this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+    $route: {
+      immediate: true,
+      handler () {
+        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+      }
     }
   }
 }
