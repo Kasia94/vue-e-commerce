@@ -37,6 +37,10 @@ const routes = [
     path: '/product/:id',
     props: route => ({ id: Number(route.params.id) || null }),
     component: () => import(/* webpackChunkName: "product" */ '../views/ProductPage.vue')
+  },
+  {
+    path: '/basket',
+    component: () => import(/* webpackChunkName: "basket" */ '../views/Basket.vue')
   }
 ]
 const router = new VueRouter({

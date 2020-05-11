@@ -1,8 +1,8 @@
 export default {
-  computed: {
-    price () {
+  filters: {
+    price (value) {
       const nf = new Intl.NumberFormat('pl', { style: 'currency', currency: 'PLN' })
-      return nf.format(this.product.price)
+      return nf.format(value)
     }
   }
 }

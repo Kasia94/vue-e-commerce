@@ -5,7 +5,7 @@
         sm="12"
         md="6"
         lg="6"
-        class="kolOne d-flex flex-row flex-wrap"
+        class="d-flex flex-row flex-wrap"
       >
         <img
           v-for="image in product.images"
@@ -32,9 +32,12 @@
         </div>
         <div class="buy">
           <div class="price">
-            {{ price }}
+            {{ product.price|price }}
           </div>
-          <button class="btn">
+          <button
+            class="btn"
+            @click="addToBasket(product.id, product.price, 1)"
+          >
             Dodaj do koszyka
             <img
               class="basket"
@@ -53,9 +56,11 @@
 </template>
 <script>
 import PriceMixin from './../mixins/product.price.mixin'
+import BasketMixin from './../mixins/basket.mixin'
 export default {
   mixins: [
-    PriceMixin
+    PriceMixin,
+    BasketMixin
   ],
   props: {
     id: {

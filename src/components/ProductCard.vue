@@ -1,7 +1,7 @@
 <template>
   <b-card
     img-height="350rem"
-    :footer="price"
+    :footer="product.price | price"
     :title="product.name"
     :img-src="product.images[0].url"
     :img-alt="product.name"

@@ -46,6 +46,14 @@
               Search
             </b-button>
           </b-nav-form>
+          <b-nav-item>
+            <router-link to="/basket">
+              Koszyk<img
+                class="basketMenu"
+                src="../assets/kosza.png"
+              >
+            </router-link>
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -55,3 +63,9 @@
 export default {
 }
 </script>
+<style lang="scss">
+  .basketMenu {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
