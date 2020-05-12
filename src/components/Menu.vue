@@ -47,12 +47,7 @@
             </b-button>
           </b-nav-form>
           <b-nav-item>
-            <router-link to="/basket">
-              Koszyk<img
-                class="basketMenu"
-                src="../assets/kosza.png"
-              >
-            </router-link>
+            <BasketNavBatton />
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -60,12 +55,11 @@
   </div>
 </template>
 <script>
+
+import BasketNavBatton from './BasketNavBatton'
 export default {
+  components: {
+    BasketNavBatton
+  }
 }
 </script>
-<style lang="scss">
-  .basketMenu {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-</style>

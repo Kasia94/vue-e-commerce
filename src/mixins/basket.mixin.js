@@ -1,4 +1,9 @@
 export default {
+  computed: {
+    amountInBasket () {
+      return this.basket.reduce((sum, basketProduct) => (sum += basketProduct.quantity), 0)
+    }
+  },
   data () {
     return {
       basket: []
