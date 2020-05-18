@@ -36,7 +36,7 @@
           </div>
           <button
             class="btn"
-            @click="addToBasket(product.id, product.price, 1)"
+            @click="addToBasket({ productId: product.id, price: product.price, quantity: 1})"
           >
             Dodaj do koszyka
             <img

@@ -2,7 +2,7 @@
   <b-container>
     <b-row align-h="between">
       <b-col cols="4">
-        <List :items="category" />
+        <List :items="getItemsForCategoryTree" />
       </b-col>
       <b-col cols="8">
         <router-view />
@@ -13,11 +13,7 @@
 
 <script>
 import List from '@/components/List.vue'
-const nest = (items, id = null) =>
-  items
-    .filter(item => item.sub === id)
-    .map(item => ({ ...item, children: nest(items, item.id) }))
-
+import { mapGetters, mapActions } from 'vuex'
 export default {
   components: {
     List
@@ -28,13 +24,11 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      category: []
-    }
-  },
-  mounted () {
-    this.axios.get('/categories').then(res => { this.category = nest(res.data) })
+
+  computed: {
+    ...mapGetters(['getItemsForCategoryTree']),
+    ...mapActions(['getCategory'])
   }
+
 }
 </script>

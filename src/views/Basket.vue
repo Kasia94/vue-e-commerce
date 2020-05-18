@@ -3,7 +3,7 @@
     <h1>koszyk</h1>
     <template v-if="products.length">
       <b-row
-        v-for="item in items"
+        v-for="item in getProductsForBasket"
         :key="item.productId"
         class="border rounded my-2 p-2 table-info "
       >
@@ -23,7 +23,7 @@
         </b-col>
       </b-row>
       <p class="summary-price">
-        DO ZAPŁATY: {{ sumPrice() | price }}
+        DO ZAPŁATY: {{ sumPrice | price }}
       </p>
     </template>
     <div v-else>
@@ -42,28 +42,20 @@
 <script>
 import BasketMixin from './../mixins/basket.mixin'
 import PriceMixin from './../mixins/product.price.mixin'
+import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   mixins: [BasketMixin, PriceMixin],
-  data () {
-    return {
-      products: []
-    }
-  },
   computed: {
-    items () {
-      return this.basket.map(basketProduct => {
-        const product = this.products.find(product => product.id === basketProduct.productId)
-        return {
-          ...basketProduct,
-          name: product.name,
-          url: product.images[0].url,
-          summary: basketProduct.price * basketProduct.quantity
-        }
-      })
-    }
+    ...mapState(['products']),
+    ...mapGetters(['getProductsForBasket'])
   },
   mounted () {
-    this.axios.get('/products').then(res => { this.products = res.data })
+    this.getProducts()
+  },
+  methods: {
+    ...mapActions({
+      getProducts: 'getProducts'
+    })
   }
 
 }
