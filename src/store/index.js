@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
     getCategory ({ state, commit }) {
       if (state.category.length) return
-      this.axios.get('/categories').then(res => commit('setCategory', res.data))
+      this.axios.get('categories').then(res => commit('setCategory', res.data))
     },
     addToBasket ({ state, commit, dispatch }, payload) {
       const { productId } = payload
@@ -83,6 +83,13 @@ export default new Vuex.Store({
     },
     saveToLocalStorage ({ state }) {
       localStorage.setItem('basket', JSON.stringify(state.basket))
+    },
+    clearBasketInLocalStorage () {
+      localStorage.removeItem('basket')
+    },
+
+    sendPostInformation (_, data) {
+      return this.axios.post('orders', data)
     }
   }
 })

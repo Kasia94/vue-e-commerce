@@ -31,7 +31,7 @@
     </div>
     <router-link
       tag="button"
-      to="/basket/data"
+      to="/basket/confirm"
       class="btn btn-info btn-block"
     >
       DALEJ

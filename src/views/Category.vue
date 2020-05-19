@@ -28,6 +28,9 @@ export default {
   computed: {
     ...mapGetters(['getItemsForCategoryTree']),
     ...mapActions(['getCategory'])
+  },
+  mounted () {
+    this.getCategory()
   }
 
 }

@@ -41,7 +41,12 @@ const routes = [
   {
     path: '/basket',
     component: () => import(/* webpackChunkName: "basket" */ '../views/Basket.vue')
+  },
+  {
+    path: '/basket/confirm',
+    component: () => import(/* webpackChunkName: "basket" */ '../views/Confirm.vue')
   }
+
 ]
 const router = new VueRouter({
   mode: 'history',
