@@ -5,8 +5,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     basket: [],
-    products: [],
-    category: []
+    products: null,
+    category: [],
+    homepageProducts: null
   },
   getters: {
     amountInBasket (state) {
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     setProducts (state, payload) {
       state.products = payload
     },
+    setHomepageProducts (state, payload) {
+      state.homepageProducts = payload
+    },
     setCategory (state, payload) {
       state.category = payload
     }
@@ -63,9 +67,23 @@ export default new Vuex.Store({
     getBasket ({ commit }) {
       commit('setBasket', JSON.parse(localStorage.getItem('basket')) || [])
     },
-    getProducts ({ state, commit }) {
-      if (state.products.length) return
-      this.axios.get('products').then(res => commit('setProducts', res.data))
+    async getProducts ({ state, commit }) {
+      if (state.products) return
+      state.products = []
+      const res = await this.axios.get('products')
+
+      commit('setProducts', res.data)
+    },
+    async getHomepageProducts ({ dispatch, state, commit }) {
+      await dispatch('getProducts')
+      const count = state.products.length
+
+      const limit = 8
+      const start = Math.floor(Math.random() * (count - limit))
+
+      const res = await this.axios.get(`products?_start=${start}&_limit=${limit}`)
+
+      commit('setHomepageProducts', res.data)
     },
     getCategory ({ state, commit }) {
       if (state.category.length) return

@@ -1,5 +1,3 @@
 <template>
-  <div>
-    DOdaj jakies produkty :(
-  </div>
+  <div>Dodaj produkty </div>
 </template>
