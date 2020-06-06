@@ -45,6 +45,12 @@ const routes = [
   {
     path: '/basket/confirm',
     component: () => import(/* webpackChunkName: "basket" */ '../views/Confirm.vue')
+  },
+  {
+    path: '/basket/summary/:id',
+    props: route => ({ id: Number(route.params.id) || null }),
+    component: () => import(/* webpackChunkName: "basket" */ '../views/Summary.vue')
+
   }
 
 ]

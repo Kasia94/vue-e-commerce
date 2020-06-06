@@ -95,7 +95,7 @@ export default {
           this.forms.map(item => ([item.value] = ''))
           this.setBasket([])
           this.clearBasketInLocalStorage()
-          this.$router.push(`/summary/${res.data.id}`)
+          this.$router.push(`/basket/summary/${res.data.id}`)
         })
         .finally(() => {
           this.loading = false
