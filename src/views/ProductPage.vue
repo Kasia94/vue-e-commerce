@@ -35,6 +35,7 @@
             {{ product.price|price }}
           </div>
           <button
+            v-b-modal.modal-1
             class="btn"
             @click="addToBasket({ productId: product.id, price: product.price, quantity: 1})"
           >
@@ -44,6 +45,32 @@
               src="../assets/kosza.png"
             >
           </button>
+          <b-modal
+            id="modal-1"
+            title="DODANO DO KOSZYKA"
+          >
+            <p class="my-4">
+              Produkt {{ product.name }} został dodany do koszyka!
+            </p>
+            <template v-slot:modal-footer="{ OK, cancel }">
+              <router-link to="/basket">
+                <b-button
+                  size="sm"
+                  variant="info"
+                  @click="OK"
+                >
+                  Przejdź do koszyka
+                </b-button>
+              </router-link>
+              <b-button
+                size="sm"
+                variant="success"
+                @click="cancel()"
+              >
+                Kontynuuj zakupy
+              </b-button>
+            </template>
+          </b-modal>
         </div>
       </b-col>
     </b-row>
