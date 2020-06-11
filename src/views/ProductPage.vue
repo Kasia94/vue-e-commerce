@@ -35,9 +35,8 @@
             {{ product.price|price }}
           </div>
           <button
-            v-b-modal.modal-1
             class="btn"
-            @click="addToBasket({ productId: product.id, price: product.price, quantity: 1})"
+            @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
           >
             Dodaj do koszyka
             <img
@@ -45,32 +44,6 @@
               src="../assets/kosza.png"
             >
           </button>
-          <b-modal
-            id="modal-1"
-            title="DODANO DO KOSZYKA"
-          >
-            <p class="my-4">
-              Produkt {{ product.name }} został dodany do koszyka!
-            </p>
-            <template v-slot:modal-footer="{ OK, cancel }">
-              <router-link to="/basket">
-                <b-button
-                  size="sm"
-                  variant="info"
-                  @click="OK"
-                >
-                  Przejdź do koszyka
-                </b-button>
-              </router-link>
-              <b-button
-                size="sm"
-                variant="success"
-                @click="cancel()"
-              >
-                Kontynuuj zakupy
-              </b-button>
-            </template>
-          </b-modal>
         </div>
       </b-col>
     </b-row>
@@ -79,21 +52,30 @@
         {{ product.description }}
       </p>
     </b-row>
+    <modalBasket
+      v-if="product"
+      ref="modalBasket"
+      :product="product"
+    />
   </b-container>
 </template>
 <script>
+import modalBasket from './../components/modalBasket'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
+  components: { modalBasket },
   mixins: [
     PriceMixin,
     BasketMixin
   ],
+
   props: {
     id: {
       type: Number,
       default: null
     }
+
   },
   data () {
     return {
@@ -102,6 +84,13 @@ export default {
   },
   mounted () {
     this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+  },
+
+  methods: {
+    async clickAddToBasket (payload) {
+      await this.addToBasket(payload)
+      this.$refs.modalBasket.show()
+    }
   }
 }
 </script>
