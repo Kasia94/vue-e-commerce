@@ -1,6 +1,5 @@
 <template>
   <b-modal
-    id="modone"
     ref="modalBasket"
     title="DODANO DO KOSZYKA"
     header-bg-variant="info"
@@ -8,7 +7,7 @@
     cancel-title="Kontynuuj zakupy"
     ok-variant="danger"
     cancel-variant="success"
-    @ok="OK"
+    @ok="$router.push('/basket')"
   >
     <p class="my-4">
       Produkt {{ product.name }} został dodany do koszyka!
@@ -35,9 +34,6 @@ export default {
   methods: {
     show () {
       this.$refs.modalBasket.show()
-    },
-    OK () {
-      this.$router.push('/basket')
     }
   }
 
