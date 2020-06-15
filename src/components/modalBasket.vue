@@ -1,29 +1,18 @@
 <template>
   <b-modal
+    id="modone"
     ref="modalBasket"
     title="DODANO DO KOSZYKA"
+    header-bg-variant="info"
+    ok-title="Przejdź do koszyka"
+    cancel-title="Kontynuuj zakupy"
+    ok-variant="danger"
+    cancel-variant="success"
+    @ok="OK"
   >
     <p class="my-4">
       Produkt {{ product.name }} został dodany do koszyka!
     </p>
-    <template v-slot:modal-footer="{ OK, cancel }">
-      <router-link to="/basket">
-        <b-button
-          size="sm"
-          variant="info"
-          @click="OK"
-        >
-          Przejdź do koszyka
-        </b-button>
-      </router-link>
-      <b-button
-        size="sm"
-        variant="success"
-        @click="cancel()"
-      >
-        Kontynuuj zakupy
-      </b-button>
-    </template>
   </b-modal>
 </template>
 
@@ -46,6 +35,9 @@ export default {
   methods: {
     show () {
       this.$refs.modalBasket.show()
+    },
+    OK () {
+      this.$router.push('/basket')
     }
   }
 

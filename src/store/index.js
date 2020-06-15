@@ -22,7 +22,7 @@ export default new Vuex.Store({
         return {
           ...basketItem,
           name: product.name,
-          url: product.images[0].url,
+          url: product?.images?.[0]?.url,
           summary: basketItem.price * basketItem.quantity
         }
       })
