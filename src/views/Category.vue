@@ -24,14 +24,14 @@ export default {
       default: null
     }
   },
-
   computed: {
-    ...mapGetters(['getItemsForCategoryTree']),
-    ...mapActions(['getCategory'])
+    ...mapGetters(['getItemsForCategoryTree'])
   },
   mounted () {
     this.getCategory()
+  },
+  methods: {
+    ...mapActions(['getCategory'])
   }
-
 }
 </script>

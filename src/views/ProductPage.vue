@@ -36,7 +36,7 @@
           </div>
           <button
             class="btn"
-            @click="addToBasket({ productId: product.id, price: product.price, quantity: 1})"
+            @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
           >
             Dodaj do koszyka
             <img
@@ -52,21 +52,30 @@
         {{ product.description }}
       </p>
     </b-row>
+    <modalBasket
+      v-if="product"
+      ref="modalBasket"
+      :product="product"
+    />
   </b-container>
 </template>
 <script>
+import modalBasket from './../components/modalBasket'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
+  components: { modalBasket },
   mixins: [
     PriceMixin,
     BasketMixin
   ],
+
   props: {
     id: {
       type: Number,
       default: null
     }
+
   },
   data () {
     return {
@@ -75,6 +84,13 @@ export default {
   },
   mounted () {
     this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+  },
+
+  methods: {
+    async clickAddToBasket (payload) {
+      await this.addToBasket(payload)
+      this.$refs.modalBasket.show()
+    }
   }
 }
 </script>
