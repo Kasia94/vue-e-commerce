@@ -1,9 +1,8 @@
 <template>
   <div>
-    <b-nav-form
-      @submit="goToView"
-    >
+    <b-nav-form @submit.prevent="goToView">
       <b-form-input
+        v-model="name"
         size="sm"
         class="mr-sm-2"
         placeholder="Search"
@@ -13,6 +12,7 @@
         class="my-2 my-sm-0"
         type="submit"
       >
+        <router-link to="/search" />
         Search
       </b-button>
     </b-nav-form>
@@ -23,9 +23,18 @@
 </template>
 <script>
 import BasketNavBatton from './BasketNavBatton'
+
 export default {
   components: {
     BasketNavBatton
+  },
+  data () {
+    return { name: '', test: 'xidfuisdf=sdf' }
+  },
+  methods: {
+    goToView () {
+      this.$router.push(`/search/${this.test}?q=${this.name}`)
+    }
   }
 }
 </script>
