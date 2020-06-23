@@ -5,9 +5,11 @@
     :title="product.name"
     :img-src="product.images[0].url"
     :img-alt="product.name"
+    fluid
+    alt="Responsive image"
     img-top
     tag="article"
-    class="m-1"
+    class="img-w "
   >
     <router-link
       :to="`/product/${product.id}`"
@@ -36,5 +38,9 @@ export default {
 <style lang="scss">
 article .card-title {
   font-size: 1rem;
+}
+
+.img-w {
+  max-width: 15rem;
 }
 </style>

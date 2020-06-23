@@ -51,6 +51,12 @@ const routes = [
     props: route => ({ id: Number(route.params.id) || null }),
     component: () => import(/* webpackChunkName: "basket" */ '../views/Summary.vue')
 
+  },
+  {
+    path: '/search',
+    props: route => ({ q: (route.query.q) || '' }),
+    component: () => import(/* webpackChunkName: "search" */ '../views/SearchView.vue')
+
   }
 
 ]
