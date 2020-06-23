@@ -1,6 +1,8 @@
 <template>
   <div>
-    <b-nav-form>
+    <b-nav-form
+      @submit="goToView"
+    >
       <b-form-input
         size="sm"
         class="mr-sm-2"
