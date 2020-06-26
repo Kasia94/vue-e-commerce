@@ -29,11 +29,11 @@ export default {
     BasketNavBatton
   },
   data () {
-    return { name: '', test: 'xidfuisdf=sdf' }
+    return { name: '' }
   },
   methods: {
     goToView () {
-      this.$router.push(`/search/${this.test}?q=${this.name}`)
+      this.$router.push(`/search/${this.name}?q=${this.name}`)
     }
   }
 }
