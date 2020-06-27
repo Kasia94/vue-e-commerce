@@ -12,7 +12,6 @@
         class="my-2 my-sm-0"
         type="submit"
       >
-        <router-link to="/search" />
         Search
       </b-button>
     </b-nav-form>
@@ -33,7 +32,7 @@ export default {
   },
   methods: {
     goToView () {
-      this.$router.push(`/search/${this.name}?q=${this.name}`)
+      this.$router.push(`/search/${this.name}`)
     }
   }
 }
