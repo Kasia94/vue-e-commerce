@@ -8,7 +8,7 @@
         v-if="results"
         class="ml-5"
       >
-        Znaleziono: {{ results.length }}
+        Znaleziono:   {{ results.length }}
       </div>
     </b-row>
     <b-row
