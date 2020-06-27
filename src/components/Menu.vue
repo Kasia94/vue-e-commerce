@@ -41,11 +41,10 @@
   </div>
 </template>
 <script>
-
-import searchField from './searchField'
+import BasketNavBatton from './BasketNavBatton'
 export default {
   components: {
-    searchField
+    BasketNavBatton
   }
 }
 </script>
