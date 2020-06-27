@@ -32,18 +32,19 @@
           </b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-          <searchField />
+          <b-nav-item>
+            <BasketNavBatton />
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
   </div>
 </template>
 <script>
-
-import searchField from './searchField'
+import BasketNavBatton from './BasketNavBatton'
 export default {
   components: {
-    searchField
+    BasketNavBatton
   }
 }
 </script>

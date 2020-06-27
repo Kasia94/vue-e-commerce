@@ -51,11 +51,6 @@ const routes = [
     props: route => ({ id: Number(route.params.id) || null }),
     component: () => import(/* webpackChunkName: "basket" */ '../views/Summary.vue')
 
-  },
-  {
-    path: '/search/:name',
-    props: true,
-    component: () => import(/* webpackChunkName: "search" */ '../views/Search.vue')
   }
 ]
 const router = new VueRouter({
