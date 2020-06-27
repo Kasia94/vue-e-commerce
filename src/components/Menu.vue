@@ -32,21 +32,6 @@
           </b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-          <SearchField />
-          <!-- <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-            />
-            <b-button
-              size="sm"
-              class="my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </b-button>
-          </b-nav-form> -->
           <b-nav-item>
             <BasketNavBatton />
           </b-nav-item>
@@ -58,11 +43,9 @@
 <script>
 
 import BasketNavBatton from './BasketNavBatton'
-import SearchField from './SearchField'
 export default {
   components: {
-    BasketNavBatton,
-    SearchField
+    BasketNavBatton
   }
 }
 </script>
