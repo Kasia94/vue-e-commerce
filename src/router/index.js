@@ -58,7 +58,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "search" */ '../views/SearchView.vue')
 
   }
-
 ]
 const router = new VueRouter({
   mode: 'history',

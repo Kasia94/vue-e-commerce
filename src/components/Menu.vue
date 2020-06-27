@@ -42,10 +42,10 @@
 </template>
 <script>
 
-import BasketNavBatton from './BasketNavBatton'
+import searchField from './searchField'
 export default {
   components: {
-    BasketNavBatton
+    searchField
   }
 }
 </script>
