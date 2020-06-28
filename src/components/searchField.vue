@@ -15,18 +15,11 @@
         Search
       </b-button>
     </b-nav-form>
-    <b-nav-item>
-      <BasketNavBatton />
-    </b-nav-item>
   </div>
 </template>
 <script>
-import BasketNavBatton from './BasketNavBatton'
 
 export default {
-  components: {
-    BasketNavBatton
-  },
   data () {
     return { name: '' }
   },
