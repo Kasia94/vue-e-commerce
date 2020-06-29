@@ -5,7 +5,7 @@
         Wyniki wyszukiwania dla: "{{ name }}."
       </div>
       <div
-        v-if="results.length>0"
+        v-if="results.length"
         class="ml-5"
       >
         Znaleziono: {{ results.length }} produktów.
