@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <b-navbar
-      toggleable="lg"
+      toggleable="sm"
       type="dark"
       variant="info"
     >
@@ -21,6 +21,8 @@
             <router-link to="/category">
               Categories
             </router-link>
+          </b-nav-item>
+          <b-nav-item>
             <router-link to="/about">
               About us
             </router-link>
