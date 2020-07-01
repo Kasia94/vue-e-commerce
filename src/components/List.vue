@@ -1,5 +1,5 @@
 <template>
-  <ul class="list pl-3 text-left bg-info ">
+  <ul class="categoryList pl-3 text-left bg-info ">
     <li
       v-for="item in items"
       :key="item.id"
@@ -8,8 +8,8 @@
         :to="`/category/${item.id}`"
         :class="{ 'text-dark font-weight-bold': item.id == $route.params.id }"
       >
-        <a class="h5">
-          {{ item.name }}
+        <a class="categoryName">
+          <h5> {{ item.name }}</h5>
         </a>
       </router-link>
       <List
@@ -36,11 +36,11 @@ export default {
 }
 </script>
 <style>
-.list {
+.categoryList {
   list-style: none;
 }
 
-a {
+a.categoryName {
   color: #294561;
 }
 </style>
