@@ -105,7 +105,6 @@ export default {
     }
   },
   mounted () {
-    // debugger
     this.axios.get(`/products/${this.id}`)
       .then(res => { this.product = res.data })
   },
