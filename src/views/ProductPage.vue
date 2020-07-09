@@ -52,6 +52,9 @@
         {{ product.description }}
       </p>
     </b-row>
+    <b-row>
+      <similar :id="id" />
+    </b-row>
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -61,10 +64,11 @@
 </template>
 <script>
 import modalBasket from './../components/modalBasket'
+import similar from './../components/Similar.vue'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
-  components: { modalBasket },
+  components: { modalBasket, similar },
   mixins: [
     PriceMixin,
     BasketMixin
@@ -82,8 +86,14 @@ export default {
       product: {}
     }
   },
-  mounted () {
-    this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+
+  watch: {
+    $route: {
+      immediate: true,
+      handler () {
+        this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+      }
+    }
   },
 
   methods: {
