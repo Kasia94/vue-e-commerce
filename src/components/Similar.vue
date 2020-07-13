@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex flex-row flex-wrap justify-content-between item-position">
     <h3 class="d-block">
-      {{ "Podobne produkty:" }}
+      "Podobne produkty:"
     </h3>
     <ProductCard
-      v-for="item in other"
+      v-for="item in similarProduct"
       :key="item.id"
       class="m-3 mt-5"
       :product="item"
@@ -28,14 +28,16 @@ export default {
   },
   data () {
     return {
-      other: []
+      similarProduct: []
     }
   },
   watch: {
     $route: {
       immediate: true,
-      handler () {
-        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+      async handler () {
+        const data = await this.axios.get(`/products?category=${this.id}`)
+        this.products = data
+        return data
       }
     }
   },
@@ -43,8 +45,9 @@ export default {
     this.axios.get('related').then(res => {
       (res.data.data.find(i => i.includes(this.id)) || [])
         .filter(v => v !== this.id)
-        .forEach(element => {
-          this.axios.get(`/products/${element}`).then(res2 => { this.other.push(res2.data) })
+        .forEach(async element => {
+          const res2 = await this.axios.get(`/products/${element}`)
+          this.similarProduct.push(res2.data)
         })
     })
   }
