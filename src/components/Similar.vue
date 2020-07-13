@@ -41,15 +41,14 @@ export default {
       }
     }
   },
-  mounted () {
-    this.axios.get('related').then(res => {
-      (res.data.data.find(i => i.includes(this.id)) || [])
-        .filter(v => v !== this.id)
-        .forEach(async element => {
-          const res2 = await this.axios.get(`/products/${element}`)
-          this.similarProduct.push(res2.data)
-        })
-    })
+  async mounted () {
+    const res = await this.axios.get('related')
+    res.data.data.find(i => i.includes(this.id) || [])
+      .filter(v => v !== this.id)
+      .forEach(async element => {
+        const res2 = await this.axios.get(`/products/${element}`)
+        this.similarProduct.push(res2.data)
+      })
   }
 }
 </script>
