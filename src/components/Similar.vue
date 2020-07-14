@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex flex-row flex-wrap justify-content-between item-position">
-    <h3 class="d-block">
-      "Podobne produkty:"
+  <div class="d-flex justify-content-between item-position">
+    <h3 class="">
+      Podobne produkty:
     </h3>
     <ProductCard
       v-for="item in similarProduct"
