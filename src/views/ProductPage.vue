@@ -6,14 +6,14 @@
           sm="12"
           md="6"
           lg="6"
-          class="d-flex flex-row flex-wrap"
+          class="d-flex flex-row flex-wrap "
         >
           <div v-if="product.images.length ===1">
             <img
               v-for="image in product.images"
 
               :key="image.id"
-              class="m-1 "
+              class="m-1 oneImage"
               :src="image.url"
             >
           </div>
@@ -121,16 +121,14 @@ export default {
 @import '~@/scss/variables';
 
 .product {
-  img { width: 50%; }
+  .oneImage { width: 50%; }
 
   .photo-carousel {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    img {
-      max-width: 60%;
-    }
+    max-width: 60%;
+    left: 5rem;
   }
 
   .properties {
