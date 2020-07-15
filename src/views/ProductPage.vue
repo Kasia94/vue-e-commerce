@@ -90,8 +90,9 @@ export default {
   watch: {
     $route: {
       immediate: true,
-      handler () {
-        this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+      async handler () {
+        const res = await this.axios.get(`/products/${this.id}`)
+        this.product = res.data
       }
     }
   },

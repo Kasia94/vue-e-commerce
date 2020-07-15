@@ -1,6 +1,9 @@
 <template>
-  <div class="d-flex justify-content-between item-position">
-    <h3 class="">
+  <div
+    v-if="similarProduct.length"
+    class="d-flex justify-content-between item-position"
+  >
+    <h3>
       Podobne produkty:
     </h3>
     <ProductCard
@@ -11,6 +14,9 @@
       img-height="200rem"
     />
   </div>
+  <b-alert v-else>
+    {{ error }}
+  </b-alert>
 </template>
 <script>
 
@@ -28,27 +34,30 @@ export default {
   },
   data () {
     return {
-      similarProduct: []
+      similarProduct: [],
+      error: null
+
     }
   },
   watch: {
     $route: {
       immediate: true,
       async handler () {
-        const data = await this.axios.get(`/products?category=${this.id}`)
-        this.products = data
-        return data
+        const res = await this.axios.get(`/products?category=${this.id}`)
+        this.products = res.data
       }
     }
   },
   async mounted () {
-    const res = await this.axios.get('related')
-    res.data.data.find(i => i.includes(this.id) || [])
-      .filter(v => v !== this.id)
-      .forEach(async element => {
-        const res2 = await this.axios.get(`/products/${element}`)
-        this.similarProduct.push(res2.data)
-      })
+    try {
+      const res = await this.axios.get('related')
+      res.data.data.find(i => i.includes(this.id) || [])
+        .filter(v => v !== this.id)
+        .forEach(async element => {
+          const res2 = await this.axios.get(`/products/${element}`)
+          this.similarProduct.push(res2.data)
+        })
+    } catch (e) { console.log(e.message) }
   }
 }
 </script>
