@@ -1,22 +1,24 @@
 <template>
-  <div
-    v-if="similarProduct.length"
-    class="d-flex justify-content-between item-position"
-  >
-    <h3>
-      Podobne produkty:
-    </h3>
-    <ProductCard
-      v-for="item in similarProduct"
-      :key="item.id"
-      class="m-3 mt-5"
-      :product="item"
-      img-height="200rem"
-    />
+  <div>
+    <div
+      v-if="similarProduct.length"
+      class="d-flex justify-content-between item-position"
+    >
+      <h3>
+        Podobne produkty:
+      </h3>
+      <ProductCard
+        v-for="item in similarProduct"
+        :key="item.id"
+        class="m-3 mt-5"
+        :product="item"
+        img-height="200rem"
+      />
+    </div>
+    <b-alert :show="true">
+      {{ error }}
+    </b-alert>
   </div>
-  <b-alert v-else>
-    {{ error }}
-  </b-alert>
 </template>
 <script>
 
@@ -57,7 +59,9 @@ export default {
           const res2 = await this.axios.get(`/products/${element}`)
           this.similarProduct.push(res2.data)
         })
-    } catch (e) { console.log(e.message) }
+    } catch (e) {
+      this.error = e.message
+    }
   }
 }
 </script>
