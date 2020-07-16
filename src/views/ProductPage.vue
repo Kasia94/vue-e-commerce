@@ -53,6 +53,9 @@
       </p>
     </b-row>
     <b-spinner v-if="loading=true" />
+    <b-alert :show="true">
+      {{ error }}
+    </b-alert>
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -81,12 +84,17 @@ export default {
   data () {
     return {
       product: {},
-      loading: false
+      loading: false,
+      error: null
+
     }
   },
-  mounted () {
+  async mounted () {
     this.loading = true
-    this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+    try {
+      const res = await this.axios.get(`/products/${this.id}`)
+      this.product = res.data
+    } catch (e) { this.error = e.message }
     this.loading = false
   },
 
