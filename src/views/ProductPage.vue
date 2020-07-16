@@ -52,6 +52,7 @@
         {{ product.description }}
       </p>
     </b-row>
+    <b-spinner v-if="loading=true" />
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -79,11 +80,14 @@ export default {
   },
   data () {
     return {
-      product: {}
+      product: {},
+      loading: false
     }
   },
   mounted () {
+    this.loading = true
     this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+    this.loading = false
   },
 
   methods: {
