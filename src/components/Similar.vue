@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-100">
     <div
       v-if="similarProduct.length"
       class="d-flex justify-content-between item-position"
@@ -15,7 +15,11 @@
         img-height="200rem"
       />
     </div>
-    <b-alert :show="true">
+    <b-alert
+      :show="Boolean(error)"
+      variant="warning"
+      block
+    >
       {{ error }}
     </b-alert>
   </div>
@@ -52,7 +56,7 @@ export default {
   },
   async mounted () {
     try {
-      const res = await this.axios.get('related')
+      const res = await this.axios.get('related1')
       res.data.data.find(i => i.includes(this.id) || [])
         .filter(v => v !== this.id)
         .forEach(async element => {
