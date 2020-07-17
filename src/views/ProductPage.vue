@@ -13,7 +13,7 @@
               v-for="image in product.images"
 
               :key="image.id"
-              class="m-1 oneImage"
+              class="m-1 one-image"
               :src="image.url"
             >
           </div>
@@ -121,7 +121,7 @@ export default {
 @import '~@/scss/variables';
 
 .product {
-  .oneImage { width: 50%; }
+  .one-image { width: 50%; }
 
   .photo-carousel {
     display: flex;
