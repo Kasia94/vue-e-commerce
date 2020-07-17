@@ -1,6 +1,6 @@
 <template>
   <b-container class="product">
-    <b-row>
+    <b-row v-if="product.length">
       <b-col
         sm="12"
         md="6"
@@ -52,6 +52,13 @@
         {{ product.description }}
       </p>
     </b-row>
+    <b-spinner v-if="loading=true" />
+    <b-alert
+      v-else
+      :show="true"
+    >
+      {{ error }}
+    </b-alert>
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -79,11 +86,19 @@ export default {
   },
   data () {
     return {
-      product: {}
+      product: {},
+      loading: false,
+      error: null
+
     }
   },
-  mounted () {
-    this.axios.get(`/products/${this.id}`).then(res => { this.product = res.data })
+  async mounted () {
+    this.loading = true
+    try {
+      const res = await this.axios.get(`/products/${this.id}`)
+      this.product = res.data
+    } catch (e) { this.error = e.message }
+    this.loading = false
   },
 
   methods: {
