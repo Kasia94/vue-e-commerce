@@ -56,7 +56,7 @@ export default {
   },
   async mounted () {
     try {
-      const res = await this.axios.get('related1')
+      const res = await this.axios.get('related')
       res.data.data.find(i => i.includes(this.id) || [])
         .filter(v => v !== this.id)
         .forEach(async element => {
