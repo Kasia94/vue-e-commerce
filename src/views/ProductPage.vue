@@ -1,6 +1,6 @@
 <template>
   <b-container class="product">
-    <b-row v-if="product.length">
+    <b-row v-if="product">
       <b-col
         sm="12"
         md="6"
@@ -52,13 +52,17 @@
         {{ product.description }}
       </p>
     </b-row>
-    <b-spinner v-if="loading=true" />
-    <b-alert
-      v-else
-      :show="true"
-    >
-      {{ error }}
-    </b-alert>
+    <b-row>
+      <similar :id="id" />
+      <b-spinner v-if="loading" />
+      <b-alert
+        v-else
+        :show="!!error"
+      >
+        {{ error }}
+      </b-alert>
+    </b-row>
+
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -68,10 +72,11 @@
 </template>
 <script>
 import modalBasket from './../components/modalBasket'
+import similar from './../components/Similar.vue'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
-  components: { modalBasket },
+  components: { modalBasket, similar },
   mixins: [
     PriceMixin,
     BasketMixin
@@ -92,13 +97,15 @@ export default {
 
     }
   },
-  async mounted () {
-    this.loading = true
-    try {
-      const res = await this.axios.get(`/products/${this.id}`)
-      this.product = res.data
-    } catch (e) { this.error = e.message }
-    this.loading = false
+
+  watch: {
+    $route: {
+      immediate: true,
+      async handler () {
+        const res = await this.axios.get(`/products/${this.id}`)
+        this.product = res.data
+      }
+    }
   },
 
   methods: {
