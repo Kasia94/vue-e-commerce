@@ -1,6 +1,6 @@
 <template>
   <b-container class="product">
-    <b-row v-if="product.length">
+    <b-row v-if="product">
       <b-col
         sm="12"
         md="6"
@@ -54,10 +54,10 @@
     </b-row>
     <b-row>
       <similar :id="id" />
-      <b-spinner v-if="loading=true" />
+      <b-spinner v-if="loading" />
       <b-alert
         v-else
-        :show="true"
+        :show="!!error"
       >
         {{ error }}
       </b-alert>
