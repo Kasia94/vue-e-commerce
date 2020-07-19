@@ -8,7 +8,6 @@
           lg="6"
           class="d-flex flex-row flex-wrap "
         >
-          >
           <img
             v-for="image in product.images"
             :key="image.id"
@@ -65,13 +64,7 @@
             <button
               class="btn"
               @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
-            >
-              Dodaj do koszyka
-              <img
-                class="basket"
-                src="../assets/kosza.png"
-              >
-            </button>
+            />
           </div>
         </b-col>
       </b-row>
@@ -80,6 +73,17 @@
           {{ product.description }}
         </p>
       </b-row>
+      <b-row>
+        <similar :id="id" />
+        <b-spinner v-if="loading" />
+        <b-alert
+          v-else
+          :show="!!error"
+        >
+          {{ error }}
+        </b-alert>
+      </b-row>
+
       <modalBasket
         v-if="product"
         ref="modalBasket"
@@ -90,10 +94,11 @@
 </template>
 <script>
 import modalBasket from './../components/modalBasket'
+import similar from './../components/Similar.vue'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
-  components: { modalBasket },
+  components: { modalBasket, similar },
   mixins: [
     PriceMixin,
     BasketMixin
@@ -114,13 +119,15 @@ export default {
 
     }
   },
-  async mounted () {
-    this.loading = true
-    try {
-      const res = await this.axios.get(`/products/${this.id}`)
-      this.product = res.data
-    } catch (e) { this.error = e.message }
-    this.loading = false
+
+  watch: {
+    $route: {
+      immediate: true,
+      async handler () {
+        const res = await this.axios.get(`/products/${this.id}`)
+        this.product = res.data
+      }
+    }
   },
 
   methods: {
