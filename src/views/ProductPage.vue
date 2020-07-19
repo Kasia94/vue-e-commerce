@@ -1,6 +1,6 @@
 <template>
   <b-container class="product">
-    <b-row>
+    <b-row v-if="product.length">
       <b-col
         sm="12"
         md="6"
@@ -54,7 +54,15 @@
     </b-row>
     <b-row>
       <similar :id="id" />
+      <b-spinner v-if="loading=true" />
+      <b-alert
+        v-else
+        :show="true"
+      >
+        {{ error }}
+      </b-alert>
     </b-row>
+
     <modalBasket
       v-if="product"
       ref="modalBasket"
@@ -83,7 +91,10 @@ export default {
   },
   data () {
     return {
-      product: {}
+      product: {},
+      loading: false,
+      error: null
+
     }
   },
 
