@@ -17,7 +17,6 @@
           <div v-if="product.images.length ===1">
             <img
               v-for="image in product.images"
-
               :key="image.id"
               class="m-1 one-image"
               :src="image.url"
