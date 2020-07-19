@@ -8,6 +8,13 @@
           lg="6"
           class="d-flex flex-row flex-wrap "
         >
+          >
+          <img
+            v-for="image in product.images"
+            :key="image.id"
+            class="m-1 img-fluid"
+            :src="image.url"
+          >
           <div v-if="product.images.length ===1">
             <img
               v-for="image in product.images"
@@ -101,12 +108,19 @@ export default {
   },
   data () {
     return {
-      product: null
+      product: {},
+      loading: false,
+      error: null
+
     }
   },
-  mounted () {
-    this.axios.get(`/products/${this.id}`)
-      .then(res => { this.product = res.data })
+  async mounted () {
+    this.loading = true
+    try {
+      const res = await this.axios.get(`/products/${this.id}`)
+      this.product = res.data
+    } catch (e) { this.error = e.message }
+    this.loading = false
   },
 
   methods: {
