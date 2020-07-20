@@ -10,13 +10,14 @@
         />
         Home
       </b-breadcrumb-item>
-      <b-breadcrumb-item href="/category">
-        Kategoria
+      <b-breadcrumb-item :href="`/category/${product.category}`">
+        {{ categoryName }}
       </b-breadcrumb-item>
       <b-breadcrumb-item active>
         {{ product.name }}
       </b-breadcrumb-item>
     </b-breadcrumb>
+    <marquee>Najlepsze okazje</marquee>
     <b-container class="product">
       <b-row>
         <b-col
@@ -106,7 +107,8 @@ export default {
     return {
       product: {},
       loading: false,
-      error: null
+      error: null,
+      categoryName: ''
 
     }
   },
@@ -115,6 +117,8 @@ export default {
     try {
       const res = await this.axios.get(`/products/${this.id}`)
       this.product = res.data
+      const res2 = await this.axios.get(`/categories/${this.product.category}`)
+      this.categoryName = res2.data.name
     } catch (e) { this.error = e.message }
     this.loading = false
   },
