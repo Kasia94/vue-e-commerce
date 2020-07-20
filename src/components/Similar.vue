@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <div
       v-if="similarProduct.length"
@@ -15,6 +16,23 @@
         img-height="200rem"
       />
     </div>
+=======
+  <div class="w-100">
+    <template v-if="similarProduct.length">
+      <h3>
+        Podobne produkty:
+      </h3>
+      <div class="d-flex justify-content-between item-position">
+        <ProductCard
+          v-for="item in similarProduct"
+          :key="item.id"
+          class="m-3 mt-5"
+          :product="item"
+          img-height="200rem"
+        />
+      </div>
+    </template>
+>>>>>>> master
     <b-alert
       :show="Boolean(error)"
       variant="warning"

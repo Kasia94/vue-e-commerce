@@ -1,90 +1,117 @@
 <template>
   <div>
-    <b-breadcrumb>
-      <b-breadcrumb-item href="/">
-        Home
-      </b-breadcrumb-item>
-      <b-breadcrumb-item :href="`/category/${product.category}`">
-        {{ categoryName }}
-      </b-breadcrumb-item>
-      <b-breadcrumb-item active>
-        {{ product.name }}
-      </b-breadcrumb-item>
-    </b-breadcrumb>
-    <marquee>Najlepsze okazje</marquee>
     <b-container class="product">
-      <b-row>
-        <b-col
-          sm="12"
-          md="6"
-          lg="6"
-          class="d-flex flex-row flex-wrap"
-        >
-          <img
-            v-for="image in product.images"
-            :key="image.id"
-            class="m-1 img-fluid"
-            :src="image.url"
+      <b-breadcrumb>
+        <b-breadcrumb-item href="/">
+          Home
+        </b-breadcrumb-item>
+        <b-breadcrumb-item :href="`/category/${product.category}`">
+          {{ categoryName }}
+        </b-breadcrumb-item>
+        <b-breadcrumb-item active>
+          {{ product.name }}
+        </b-breadcrumb-item>
+      </b-breadcrumb>
+      <marquee>Najlepsze okazje</marquee>
+      <template v-if="product">
+        <b-row>
+          <b-col
+            sm="12"
+            md="6"
+            lg="6"
+            class="d-flex flex-row flex-wrap "
           >
-        </b-col>
-        <b-col class="properties">
-          <h1
-            class="name h3"
-          >
-            {{ product.name }}
-          </h1>
-          <div>
-            Rozmiar:
-            <div
-              v-for="size in product.size"
-              :key="size"
-              class="size display-9 h5"
-            >
-              {{ size }}
-            </div>
-          </div>
-          <div class="buy">
-            <div class="price">
-              {{ product.price|price }}
-            </div>
-            <button
-              class="btn"
-              @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
-            >
-              Dodaj do koszyka
+            <div v-if="product.images.length ===1">
               <img
-                class="basket"
-                src="../assets/kosza.png"
+                v-for="image in product.images"
+                :key="image.id"
+                class="m-1 one-image"
+                :src="image.url"
               >
-            </button>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <p class="description">
-          {{ product.description }}
-        </p>
-      </b-row>
-      <b-spinner v-if="loading=true" />
-      <b-alert
-        :show="true"
-      >
-        {{ error }}
-      </b-alert>
-      <modalBasket
-        v-if="product"
-        ref="modalBasket"
-        :product="product"
-      />
+            </div>
+            <div v-if="product.images.length > 1">
+              <b-carousel
+
+                img-width="20px"
+                img-height="40px"
+                :interval="4000"
+                fade
+                indicators
+              >
+                <b-carousel-slide
+                  v-for="image in product.images"
+                  :key="image.id"
+                  :img-src="image.url"
+                  class="photo-carousel"
+                />
+              </b-carousel>
+            </div>
+          </b-col>
+          <b-col class="properties">
+            <h1
+              class="name h3"
+            >
+              {{ product.name }}
+            </h1>
+            <div>
+              Rozmiar:
+              <div
+                v-for="size in product.size"
+                :key="size"
+                class="size display-9 h5"
+              >
+                {{ size }}
+              </div>
+            </div>
+            <div class="buy">
+              <div class="price">
+                {{ product.price|price }}
+              </div>
+              <button
+                class="btn"
+                @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
+              >
+                Dodaj do koszyka
+                <img
+                  class="basket"
+                  src="../assets/kosza.png"
+                >
+              </button>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row>
+          <p class="description">
+            {{ product.description }}
+          </p>
+        </b-row>
+        <b-row>
+          <similar :id="id" />
+          <b-spinner v-if="loading" />
+          <b-alert
+            v-else
+            :show="!!error"
+          >
+            {{ error }}
+          </b-alert>
+        </b-row>
+
+        <modalBasket
+          v-if="product"
+          ref="modalBasket"
+          :product="product"
+        />
+      </template>
     </b-container>
   </div>
 </template>
 <script>
 import modalBasket from './../components/modalBasket'
+import similar from './../components/Similar.vue'
 import PriceMixin from './../mixins/product.price.mixin'
 import BasketMixin from './../mixins/basket.mixin'
 export default {
-  components: { modalBasket },
+  components: { modalBasket, similar },
   mixins: [
     PriceMixin,
     BasketMixin
@@ -106,6 +133,7 @@ export default {
 
     }
   },
+
   async mounted () {
     this.loading = true
     try {
@@ -129,8 +157,14 @@ export default {
 @import '~@/scss/variables';
 
 .product {
-  img {
-    width: 48%;
+  .one-image { width: 50%; }
+
+  .photo-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 60%;
+    left: 5rem;
   }
 
   .properties {

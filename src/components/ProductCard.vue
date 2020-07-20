@@ -1,6 +1,6 @@
 <template>
   <b-card
-    img-height="350rem"
+    :img-height="imgHeight"
     :footer="product.price | price"
     :title="product.name"
     :img-src="product.images[0].url"
@@ -30,7 +30,12 @@ export default {
     product: {
       type: Object,
       default: () => {}
+    },
+    imgHeight: {
+      type: String,
+      default: '350rem'
     }
+
   }
 }
 </script>
