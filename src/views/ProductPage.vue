@@ -2,12 +2,6 @@
   <div>
     <b-breadcrumb>
       <b-breadcrumb-item href="/">
-        <b-icon
-          icon="house-fill"
-          scale="1.25"
-          shift-v="1.25"
-          aria-hidden="true"
-        />
         Home
       </b-breadcrumb-item>
       <b-breadcrumb-item :href="`/category/${product.category}`">
