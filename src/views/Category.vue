@@ -2,7 +2,9 @@
   <b-container>
     <b-row align-h="between">
       <b-col cols="4">
-        <List :items="getItemsForCategoryTree" />
+        <List
+          :items="getItemsForCategoryTree"
+        />
       </b-col>
       <b-col cols="8">
         <router-view />
