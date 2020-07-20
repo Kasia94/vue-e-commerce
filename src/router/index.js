@@ -20,6 +20,7 @@ const routes = [
   },
   {
     path: '/category',
+    name: 'Category',
     component: () => import(/* webpackChunkName: "category" */ '../views/Category.vue'),
     children: [
       {
