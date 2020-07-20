@@ -8,12 +8,6 @@
           lg="6"
           class="d-flex flex-row flex-wrap "
         >
-          <img
-            v-for="image in product.images"
-            :key="image.id"
-            class="m-1 img-fluid"
-            :src="image.url"
-          >
           <div v-if="product.images.length ===1">
             <img
               v-for="image in product.images"
@@ -63,7 +57,13 @@
             <button
               class="btn"
               @click="clickAddToBasket({ productId: product.id, price: product.price, quantity: 1})"
-            />
+            >
+              Dodaj do koszyka
+              <img
+                class="basket"
+                src="../assets/kosza.png"
+              >
+            </button>
           </div>
         </b-col>
       </b-row>
@@ -119,14 +119,13 @@ export default {
     }
   },
 
-  watch: {
-    $route: {
-      immediate: true,
-      async handler () {
-        const res = await this.axios.get(`/products/${this.id}`)
-        this.product = res.data
-      }
-    }
+  async mounted () {
+    this.loading = true
+    try {
+      const res = await this.axios.get(`/products/${this.id}`)
+      this.product = res.data
+    } catch (e) { this.error = e.message }
+    this.loading = false
   },
 
   methods: {
