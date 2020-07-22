@@ -49,7 +49,7 @@ export default {
       immediate: true,
       async handler () {
         const res = await this.axios.get(`/products?category=${this.id}`)
-        this.product = res.data
+        this.products = res.data
       }
     }
   },
