@@ -4,11 +4,11 @@
       <h3>
         Podobne produkty:
       </h3>
-      <div class="d-flex justify-content-between item-position">
+      <div class="d-flex justify-content-between item-position ">
         <ProductCard
           v-for="item in similarProduct"
           :key="item.id"
-          class="m-3 mt-5"
+          class="m-3 mt-5 p-5"
           :product="item"
           img-height="200rem"
         />
@@ -49,7 +49,7 @@ export default {
       immediate: true,
       async handler () {
         const res = await this.axios.get(`/products?category=${this.id}`)
-        this.products = res.data
+        this.product = res.data
       }
     }
   },
