@@ -1,5 +1,16 @@
 <template>
   <b-container>
+    <b-breadcrumb>
+      <b-breadcrumb-item href="/basket">
+        KOSZYK
+      </b-breadcrumb-item>
+      <b-breadcrumb-item :href="`/basket/confirm`">
+        DANE DO PRZESYŁKI
+      </b-breadcrumb-item>
+      <b-breadcrumb-item active>
+        PODSUMOWANIE
+      </b-breadcrumb-item>
+    </b-breadcrumb>
     <h1 class="h2 text-center m-5">
       PODSUMOWANIE ZAMÓWIENIA
     </h1>
