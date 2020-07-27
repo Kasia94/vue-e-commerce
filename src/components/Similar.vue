@@ -5,13 +5,19 @@
         Podobne produkty:
       </h3>
       <div class="d-flex justify-content-between item-position">
-        <ProductCard
-          v-for="item in similarProduct"
-          :key="item.id"
-          class="m-3 mt-5"
-          :product="item"
-          img-height="200rem"
-        />
+        <b-row
+          cols-lg="5"
+          cols-md="4"
+          cols-sm="3"
+        >
+          <ProductCard
+            v-for="item in similarProduct"
+            :key="item.id"
+            class="m-3 mt-5"
+            :product="item"
+            img-height="300rem"
+          />
+        </b-row>
       </div>
     </template>
     <b-alert
