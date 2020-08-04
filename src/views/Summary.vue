@@ -4,7 +4,7 @@
       <b-breadcrumb-item href="/basket">
         KOSZYK
       </b-breadcrumb-item>
-      <b-breadcrumb-item :href="`/basket/confirm`">
+      <b-breadcrumb-item href="`/basket/confirm`">
         DANE DO PRZESYŁKI
       </b-breadcrumb-item>
       <b-breadcrumb-item active>
