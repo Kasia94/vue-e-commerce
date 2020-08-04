@@ -8,6 +8,7 @@
         :key="product.id"
         :product="product"
       />
+      <b-spinner v-if="loading" />
     </template>
     <EmptyList v-else />
   </div>
@@ -28,14 +29,18 @@ export default {
   },
   data () {
     return {
-      products: []
+      products: [],
+      loading: false
     }
   },
   watch: {
     $route: {
       immediate: true,
-      handler () {
-        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+      async handler () {
+        this.loading = true
+        const res = await this.axios.get(`/products?category=${this.id}`)
+        this.products = res.data
+        this.loading = false
       }
     }
   }
