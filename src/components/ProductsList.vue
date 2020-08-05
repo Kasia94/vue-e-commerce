@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex flex-row flex-wrap justify-content-between  product-list">
+    <b-spinner v-if="loading" />
     <template
-      v-if="products.length"
+      v-if="products"
     >
       <ProductCard
         v-for="product in products"
@@ -10,6 +11,7 @@
       />
       <b-spinner v-if="loading" />
     </template>
+
     <EmptyList v-else />
   </div>
 </template>
@@ -36,10 +38,16 @@ export default {
   watch: {
     $route: {
       immediate: true,
+<<<<<<< HEAD
       async handler () {
         this.loading = true
         const res = await this.axios.get(`/products?category=${this.id}`)
         this.products = res.data
+=======
+      handler () {
+        this.loading = true
+        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+>>>>>>> master
         this.loading = false
       }
     }
