@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-container class="product">
+      <marquee>Najlepsze okazje</marquee>
       <b-breadcrumb>
         <b-breadcrumb-item href="/">
           Home
@@ -12,7 +13,6 @@
           {{ product.name }}
         </b-breadcrumb-item>
       </b-breadcrumb>
-      <marquee>Najlepsze okazje</marquee>
       <template v-if="product">
         <b-row>
           <b-col
@@ -21,7 +21,7 @@
             lg="6"
             class="d-flex flex-row flex-wrap "
           >
-            <div v-if="product.images.length ===1">
+            <div v-if="product.images && product.images.length ===1">
               <img
                 v-for="image in product.images"
                 :key="image.id"
@@ -29,7 +29,7 @@
                 :src="image.url"
               >
             </div>
-            <div v-if="product.images.length > 1">
+            <div v-if="product.images && product.images.length > 1">
               <b-carousel
 
                 img-width="20px"
@@ -80,7 +80,7 @@
             </div>
           </b-col>
         </b-row>
-        <b-row>
+        <b-row class="mb-5">
           <p class="description">
             {{ product.description }}
           </p>
@@ -133,16 +133,20 @@ export default {
 
     }
   },
-
-  async mounted () {
-    this.loading = true
-    try {
-      const res = await this.axios.get(`/products/${this.id}`)
-      this.product = res.data
-      const res2 = await this.axios.get(`/categories/${this.product.category}`)
-      this.categoryName = res2.data.name
-    } catch (e) { this.error = e.message }
-    this.loading = false
+  watch: {
+    $route: {
+      immediate: true,
+      async handler () {
+        this.loading = true
+        try {
+          const res = await this.axios.get(`/products/${this.id}`)
+          this.product = res.data
+          const res2 = await this.axios.get(`/categories/${this.product.category}`)
+          this.categoryName = res2.data.name
+        } catch (e) { this.error = e.message }
+        this.loading = false
+      }
+    }
   },
 
   methods: {
