@@ -30,7 +30,7 @@
         :product="product"
       />
     </b-row>
-    <b-spinner v-if="loading=true" />
+    <b-spinner v-if="loading" />
   </b-container>
 </template>
 <script>
