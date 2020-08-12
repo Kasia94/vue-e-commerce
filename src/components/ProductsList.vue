@@ -38,16 +38,10 @@ export default {
   watch: {
     $route: {
       immediate: true,
-<<<<<<< HEAD
       async handler () {
         this.loading = true
         const res = await this.axios.get(`/products?category=${this.id}`)
         this.products = res.data
-=======
-      handler () {
-        this.loading = true
-        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
->>>>>>> master
         this.loading = false
       }
     }
