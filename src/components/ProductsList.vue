@@ -9,6 +9,7 @@
         :key="product.id"
         :product="product"
       />
+      <b-spinner v-if="loading" />
     </template>
 
     <EmptyList v-else />
@@ -37,9 +38,10 @@ export default {
   watch: {
     $route: {
       immediate: true,
-      handler () {
+      async handler () {
         this.loading = true
-        this.axios.get(`/products?category=${this.id}`).then(res => { this.products = res.data })
+        const res = await this.axios.get(`/products?category=${this.id}`)
+        this.products = res.data
         this.loading = false
       }
     }
