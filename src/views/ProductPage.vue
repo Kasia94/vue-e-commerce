@@ -1,5 +1,10 @@
 <template>
   <div>
+    <b-icon
+      icon="three-dots"
+      animation="cylon"
+      font-scale="4"
+    />
     <b-container class="product">
       <marquee>Najlepsze okazje</marquee>
       <b-breadcrumb>
