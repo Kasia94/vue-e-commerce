@@ -1,10 +1,5 @@
 <template>
   <div>
-    <b-icon
-      icon="three-dots"
-      animation="cylon"
-      font-scale="4"
-    />
     <b-container class="product">
       <marquee>Najlepsze okazje</marquee>
       <b-breadcrumb>
@@ -36,12 +31,13 @@
             </div>
             <div v-if="product.images && product.images.length > 1">
               <b-carousel
-
+                class="carousel"
                 img-width="20px"
                 img-height="40px"
                 :interval="4000"
                 fade
                 indicators
+                controls
               >
                 <b-carousel-slide
                   v-for="image in product.images"
@@ -168,12 +164,16 @@ export default {
 .product {
   .one-image { width: 50%; }
 
+  .carousel {
+    background: #5fb0bd;
+  }
+
   .photo-carousel {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 60%;
-    left: 5rem;
+    left: 4.2rem;
   }
 
   .properties {
