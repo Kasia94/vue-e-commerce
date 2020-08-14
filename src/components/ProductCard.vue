@@ -6,10 +6,7 @@
       <b-card-img
         :height="imgHeight"
         :src="product.images[0].url"
-        :img-alt="product.name"
-        img="`/product/${product.id}`"
         fluid
-        alt="Responsive image"
         img-top
         tag="article"
         class="mb-2"
