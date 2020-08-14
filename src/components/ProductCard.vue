@@ -1,19 +1,24 @@
 <template>
-  <b-card class="img-w ">
+  <b-card class="img-w">
     <router-link
       :to="`/product/${product.id}`"
     >
       <b-card-img
-        v-if="product.images.length===1"
+        v-for="(img, index) in product.images.filter((_, i) => i<2)"
+        :key="img.url"
         :height="imgHeight"
-        :src="product.images[0].url"
+        :src="img.url"
         :img-alt="product.name"
         fluid
         img-top
         tag="article"
-        class="mb-2 "
+        class="mb-2"
+        :class="{
+          'image-first': !index,
+          'image--alternative': index
+        }"
       />
-      <b-card-img
+      <!-- <b-card-img
         v-if="product.images.length>1"
         :height="imgHeight"
         :src="product.images[0].url"
@@ -32,7 +37,7 @@
         img-top
         tag="article"
         class="mb-2  image-second"
-      />
+      /> -->
     </router-link>
     <router-link
       :to="`/product/${product.id}`"
@@ -82,10 +87,14 @@ article .card-title {
   display: none;
 }
 
-.image-first {
-  display: inline;
+// .image-first {
+//   display: inline;
+// }
+// .image-second { display: none; }
+
+.image--alternative {
+  display: none;
 }
-.image-second { display: none; }
 
 .img-w:hover {
   border: solid silver;
@@ -99,13 +108,22 @@ article .card-title {
     background-color: rgb(42, 76, 90);
   }
 
-  .image-first {
+  // .image:not(:last-of-type):not(.image--alternative) {
+  .image-first:not(:last-of-type) {
     display: none;
   }
 
-  .image-second {
+  .image--alternative {
     display: block;
   }
+
+  // .image-first {
+  //   display: none;
+  // }
+
+  // .image-second {
+  //   display: block;
+  // }
 }
 
 </style>
