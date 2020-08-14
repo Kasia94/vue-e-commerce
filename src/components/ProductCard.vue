@@ -6,6 +6,7 @@
       <b-card-img
         :height="imgHeight"
         :src="product.images[0].url"
+        :img-alt="product.name"
         fluid
         img-top
         tag="article"
