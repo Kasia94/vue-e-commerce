@@ -18,26 +18,6 @@
           'image--alternative': index
         }"
       />
-      <!-- <b-card-img
-        v-if="product.images.length>1"
-        :height="imgHeight"
-        :src="product.images[0].url"
-        :img-alt="product.name"
-        fluid
-        img-top
-        tag="article"
-        class="mb-2 image-first"
-      />
-      <b-card-img
-        v-if="product.images.length>1"
-        :height="imgHeight"
-        :src="product.images[1].url"
-        :img-alt="product.name"
-        fluid
-        img-top
-        tag="article"
-        class="mb-2  image-second"
-      /> -->
     </router-link>
     <router-link
       :to="`/product/${product.id}`"
@@ -87,11 +67,6 @@ article .card-title {
   display: none;
 }
 
-// .image-first {
-//   display: inline;
-// }
-// .image-second { display: none; }
-
 .image--alternative {
   display: none;
 }
@@ -108,7 +83,6 @@ article .card-title {
     background-color: rgb(42, 76, 90);
   }
 
-  // .image:not(:last-of-type):not(.image--alternative) {
   .image-first:not(:last-of-type) {
     display: none;
   }
@@ -116,14 +90,6 @@ article .card-title {
   .image--alternative {
     display: block;
   }
-
-  // .image-first {
-  //   display: none;
-  // }
-
-  // .image-second {
-  //   display: block;
-  // }
 }
 
 </style>
