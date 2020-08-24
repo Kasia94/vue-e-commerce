@@ -52,7 +52,7 @@
         <p>imię i nazwisko: {{ order.name }} {{ order.surname }}</p>
         <p>adres: {{ order.address }}</p>
         <p>miasto: {{ order.city }}</p>
-        <p>kod pocztowy: {{ order['zip-code'] }}</p>
+        <p>kod pocztowy: {{ order['zipcode'] }}</p>
         <p>kraj: {{ order.country }}</p>
       </b-col>
     </b-row>
