@@ -14,6 +14,7 @@
           v-model="input.value"
           :disabled="loading"
         />
+        {{ input.validate ? '' : input.error }}
       </b-col>
     </b-row>
     <b-btn @click="send">
@@ -36,32 +37,51 @@ export default {
         {
           id: 'name',
           label: 'imię',
-          value: ''
+          value: '',
+          validate: true,
+          error: 'Użyj minimum 2 znaków.',
+          pattern: /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2}/
         },
         {
           id: 'surname',
           label: 'nazwisko',
-          value: ''
+          value: '',
+          error: 'Użyj minimum 2 znaków.',
+          validate: true,
+          pattern: /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2}/
         },
         {
           id: 'address',
           label: 'adres',
-          value: ''
+          value: '',
+          error: 'Użyj minimum 2 znaków.',
+          validate: true,
+          pattern: /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2}/
         },
         {
           id: 'city',
           label: 'miasto',
-          value: ''
+          value: '',
+          error: 'Użyj minimum 2 znaków.',
+          validate: true,
+          pattern: /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2}/
         },
         {
-          id: 'zip-code',
+          id: 'zipcode',
           label: 'kod pocztowy',
-          value: ''
+          value: '',
+          error: 'Użyj odpowiedniego formatu (00-000).',
+          validate: true,
+          pattern: /^\d{2}-\d{3}$/
         },
         {
           id: 'country',
           label: 'kraj',
-          value: ''
+          value: '',
+          error: 'Użyj minimum 2 znaków.',
+          validate: true,
+
+          pattern: /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2}/
         }
       ]
     }
@@ -78,6 +98,14 @@ export default {
     }),
 
     send () {
+      this.forms.forEach(el => {
+        const regEx = new RegExp(el.pattern)
+        el.validate = regEx.test(el.value)
+      })
+
+      if (this.forms.some(el => !el.validate)) return
+
+      this.loading = true
       const data = Object.assign(
         {},
         ...this.forms.map(input => ({
@@ -86,19 +114,14 @@ export default {
         {
           products: this.basket
         }
-
       )
 
-      this.loading = true
       this.sendPostInformation(data)
         .then((res) => {
           this.forms.map(item => ([item.value] = ''))
           this.setBasket([])
           this.clearBasketInLocalStorage()
           this.$router.push(`/basket/summary/${res.data.id}`)
-        })
-        .finally(() => {
-          this.loading = false
         })
     }
   }
