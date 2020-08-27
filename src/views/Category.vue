@@ -1,12 +1,20 @@
 <template>
   <b-container>
     <b-row align-h="between">
-      <b-col cols="4">
+      <b-col
+        class=" w-22 p-2 bg-info text-dark"
+        cols="4"
+      >
         <List
-          :items="getItemsForCategoryTree"
+          v-for="item in getItemsForCategoryTree"
+          :key="item.id"
+          :item="item"
         />
       </b-col>
-      <b-col cols="8">
+      <b-col
+        cols="8"
+        class="p-0 "
+      >
         <router-view />
       </b-col>
     </b-row>
