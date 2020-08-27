@@ -11,7 +11,7 @@
       >
         {{ item.name }}
       </router-link>
-      #2c3e50
+
       <b-icon
         v-if="item.children.length"
         icon="caret-down-fill "
@@ -20,7 +20,7 @@
     </a>
 
     <ul>
-      <List
+      <ListItem
         v-for="some in item.children"
         v-show="open"
         :key="some.name"
@@ -30,12 +30,12 @@
   </li>
 </template>
 <script>
-import List from '@/components/List'
+import ListItem from '@/components/ListItem'
 
 export default {
-  name: 'List',
+  name: 'ListItem',
   components: {
-    List
+    ListItem
   },
   props: {
     item: {

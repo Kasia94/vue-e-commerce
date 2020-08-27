@@ -5,11 +5,13 @@
         class=" w-22 p-2 bg-info text-dark"
         cols="4"
       >
-        <List
-          v-for="item in getItemsForCategoryTree"
-          :key="item.id"
-          :item="item"
-        />
+        <ul>
+          <ListItem
+            v-for="item in getItemsForCategoryTree"
+            :key="item.id"
+            :item="item"
+          />
+        </ul>
       </b-col>
       <b-col
         cols="8"
@@ -22,11 +24,11 @@
 </template>
 
 <script>
-import List from '@/components/List.vue'
+import ListItem from '@/components/ListItem.vue'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   components: {
-    List
+    ListItem
   },
   props: {
     id: {
