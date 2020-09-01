@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-container class="product">
+    <b-container class="product bg-light">
       <marquee>Najlepsze okazje</marquee>
-      <b-breadcrumb>
+      <b-breadcrumb class="bread-color">
         <b-breadcrumb-item href="/">
           Home
         </b-breadcrumb-item>
@@ -165,7 +165,7 @@ export default {
   .one-image { width: 50%; }
 
   .carousel {
-    background: #5fb0bd;
+    background: $sweet;
   }
 
   .photo-carousel {
@@ -203,7 +203,7 @@ export default {
   }
 
   .btn {
-    background-color: rgb(39, 160, 65);
+    background-color: grey;
     font-size: 15px;
   }
 
@@ -211,6 +211,11 @@ export default {
     width: 1.5rem;
     height: 1.5rem;
   }
+
+  .bread-color {
+    color: grey;
+  }
+  a { color: grey; }
 }
 
 </style>

@@ -5,7 +5,7 @@
       <b-row
         v-for="item in getProductsForBasket"
         :key="item.productId"
-        class="border rounded my-2 p-2 table-info "
+        class="border rounded my-2 p-2 sweet-col"
       >
         <b-col class="m-auto">
           <img
@@ -32,7 +32,7 @@
     <router-link
       tag="button"
       to="/basket/confirm"
-      class="btn btn-info btn-block"
+      class="btn btn-block btn-bg"
     >
       DALEJ
     </router-link>
@@ -61,6 +61,8 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/scss/variables';
+
 .basket {
   background: rgb(234, 239, 240);
 
@@ -81,6 +83,14 @@ export default {
 
   .summary-price {
     color: black;
+  }
+
+  .sweet-col {
+    background-color: $sweet;
+  }
+
+  .btn-bg {
+    background-color: grey;
   }
 }
 </style>

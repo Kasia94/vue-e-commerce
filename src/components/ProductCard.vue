@@ -22,7 +22,7 @@
     <router-link
       :to="`/product/${product.id}`"
       type="button"
-      class="btn btn-primary btn-visible"
+      class="btn btn-color btn-visible"
       v-text="'Pokaż'"
     />
     <h6 class="d-block">
@@ -53,6 +53,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@/scss/variables';
+
 article .card-title {
   font-size: 1rem;
 }
@@ -80,7 +82,7 @@ article .card-title {
   }
 
   .btn-visible:hover {
-    background-color: rgb(42, 76, 90);
+    background-color: gray;
   }
 
   .image-first:not(:last-of-type) {
@@ -89,6 +91,10 @@ article .card-title {
 
   .image--alternative {
     display: block;
+  }
+
+  .btn-color {
+    background-color: $silv;
   }
 }
 

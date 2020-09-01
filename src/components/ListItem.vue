@@ -14,28 +14,25 @@
 
       <b-icon
         v-if="item.children.length"
-        icon="caret-down-fill "
+        :rotate="open ? 270 : 90"
+        icon="caret-right-fill"
         class="d-inline"
       />
     </a>
 
-    <ul>
-      <ListItem
-        v-for="some in item.children"
-        v-show="open"
-        :key="some.name"
-        :item="some"
-      />
-    </ul>
+    <ListParent
+      v-show="open"
+      :item="item.children"
+    />
   </li>
 </template>
 <script>
-import ListItem from '@/components/ListItem'
+// import ListParent from '@/components/ListParent'
 
 export default {
   name: 'ListItem',
   components: {
-    ListItem
+    // ListParent
   },
   props: {
     item: {
@@ -46,8 +43,6 @@ export default {
   data: function () {
     return {
       open: false
-      // level: 'level-2'
-
     }
   },
   methods: {
@@ -74,8 +69,8 @@ a.category-name {
   color: #2c3e50;
 }
 
-.level-on {
-  display: block;
+.list-item {
+  color: yellow;
 }
 
 </style>

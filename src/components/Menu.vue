@@ -3,10 +3,12 @@
     <b-navbar
       toggleable="sm"
       type="dark"
-      variant="info"
+      class="bg-navbar"
     >
-      <b-navbar-brand>
-        <router-link to="/">
+      <b-navbar-brand class="brand-color">
+        <router-link
+          to="/"
+        >
           SkibiMarket
         </router-link>
       </b-navbar-brand>
@@ -18,7 +20,10 @@
       >
         <b-navbar-nav>
           <b-nav-item>
-            <router-link to="/category">
+            <router-link
+              class="link-color"
+              to="/category"
+            >
               Categories
             </router-link>
           </b-nav-item>
@@ -53,3 +58,15 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import '~@/scss/variables';
+
+.bg-navbar {
+  background-color: $sweet;
+}
+
+.link-color {
+  color: $silv;
+}
+
+</style>

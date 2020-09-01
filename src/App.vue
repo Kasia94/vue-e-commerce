@@ -13,13 +13,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~@/scss/variables';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #fae4e8;
+  background-size: cover;
 }
 
 #nav {
@@ -32,6 +36,6 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: grey;
 }
 </style>
