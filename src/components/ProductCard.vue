@@ -78,6 +78,7 @@ article .card-title {
 
   .btn-visible {
     display: inline-block;
+    margin-left: 3rem;
     transition: color, ease;
   }
 

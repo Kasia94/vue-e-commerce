@@ -1,5 +1,10 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h2>
+      „Autentyzm, szczerość, pozytywna energia w bu­­dowaniu firmy to wartości, które od samego początku stanowią o naszym charakterze oraz całej naszej działalności”.
+    </h2>
   </div>
 </template>
+<style lang="scss">
+
+</style>
