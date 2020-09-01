@@ -1,8 +1,7 @@
 <template>
   <div>
-    <b-container class="product bg-light">
-      <marquee>Najlepsze okazje</marquee>
-      <b-breadcrumb class="bread-color">
+    <b-container class="product">
+      <b-breadcrumb>
         <b-breadcrumb-item href="/">
           Home
         </b-breadcrumb-item>
@@ -102,6 +101,7 @@
           ref="modalBasket"
           :product="product"
         />
+        <marquee>Najlepsze okazje</marquee>
       </template>
     </b-container>
   </div>
