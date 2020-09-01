@@ -17,7 +17,7 @@
           <router-link
             :to="`/product/${item.id}`"
             type="button"
-            class="btn btn-primary"
+            class="btn btn-color"
             v-text="'Pokaż'"
           />
         </b-card>
@@ -57,7 +57,12 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/scss/variables';
+
 .home {
+  height: 100%;
+  background-size: cover;
+
   .photo {
     width: 120px;
     height: 170px;
@@ -79,6 +84,10 @@ export default {
     position: absolute;
     bottom: 80px;
     left: 60px;
+  }
+
+  .btn-color {
+    background-color: $silv;
   }
 }
 </style>

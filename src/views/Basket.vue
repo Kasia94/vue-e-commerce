@@ -3,9 +3,9 @@
     <h1>koszyk</h1>
     <template v-if="products">
       <b-row
-        v-for="product in getProductsForBasket"
-        :key="product.productId"
-        class="border rounded my-2 p-2 table-info "
+        v-for="item in getProductsForBasket"
+        :key="item.productId"
+        class="border rounded my-2 p-2 sweet-col"
       >
         <b-col class="m-auto">
           <img
@@ -45,7 +45,7 @@
     <router-link
       tag="button"
       to="/basket/confirm"
-      class="btn btn-info btn-block"
+      class="btn btn-block btn-bg"
     >
       DALEJ
     </router-link>
@@ -81,6 +81,8 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '~@/scss/variables';
+
 .basket {
   background: rgb(234, 239, 240);
 
@@ -103,15 +105,12 @@ export default {
     color: black;
   }
 
-  .quantity-position {
-    text-align: center;
-    margin-left: 13rem;
+  .sweet-col {
+    background-color: $sweet;
   }
 
-  .btns {
-    margin-left: 2rem;
-    height: 1rem;
-    background-color: #17a2b8;
+  .btn-bg {
+    background-color: grey;
   }
 }
 </style>

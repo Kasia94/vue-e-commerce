@@ -2,7 +2,7 @@
   <b-modal
     ref="modalBasket"
     title="DODANO DO KOSZYKA"
-    header-bg-variant="info"
+    header-class="header-bg"
     ok-title="Przejdź do koszyka"
     cancel-title="Kontynuuj zakupy"
     ok-variant="danger"
@@ -39,3 +39,10 @@ export default {
 
 }
 </script>
+<style lang="scss">
+@import '~@/scss/variables';
+
+.header-bg {
+  background-color: $silv;
+}
+</style>
