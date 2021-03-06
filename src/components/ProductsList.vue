@@ -40,7 +40,7 @@ export default {
       immediate: true,
       async handler () {
         this.loading = true
-        const res = await this.axios.get(`/products?category=${this.id}`)
+        const res = await this.axios.get(`/products${this.id ? `?category=${this.id}` : ''}`)
         this.products = res.data
         this.loading = false
       }

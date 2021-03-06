@@ -88,6 +88,7 @@ export default {
 
   .btn-color {
     background-color: $silv;
+    color: white;
   }
 }
 </style>

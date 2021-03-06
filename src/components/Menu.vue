@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <b-navbar
-      toggleable="sm"
+      toggleable="md"
       type="dark"
       class="bg-navbar"
     >
@@ -9,7 +9,7 @@
         <router-link
           to="/"
         >
-          SkibiMarket
+          Vue e-Commerce
         </router-link>
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse" />
@@ -62,7 +62,7 @@ export default {
 @import '~@/scss/variables';
 
 .bg-navbar {
-  background-color: $sweet;
+  background-color: $baseColor;
 }
 
 .link-color {

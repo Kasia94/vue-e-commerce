@@ -2,13 +2,16 @@
   <div id="app">
     <Menu />
     <router-view />
+    <Footer />
   </div>
 </template>
 <script>
 import Menu from './components/Menu'
+import Footer from './components/Footer'
 export default {
   components: {
-    Menu
+    Menu,
+    Footer
   }
 }
 </script>
@@ -22,7 +25,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #fae4e8;
+  background-color: rgb(218, 240, 247);
   background-size: cover;
 }
 

@@ -47,7 +47,7 @@ export default {
 @import '~@/scss/variables';
 
 body {
-  background-color: $sweet;
+  background-color: $baseColor;
   background-size: cover;
 }
 

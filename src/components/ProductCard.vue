@@ -21,13 +21,11 @@
     </router-link>
     <router-link
       :to="`/product/${product.id}`"
-      type="button"
-      class="btn btn-color btn-visible"
-      v-text="'Pokaż'"
-    />
-    <h6 class="d-block">
-      {{ product.name }}
-    </h6>
+    >
+      <h6 class="d-block">
+        {{ product.name }}
+      </h6>
+    </router-link>
     <b-card-footer>{{ product.price | price }}</b-card-footer>
   </b-card>
 </template>
@@ -61,7 +59,7 @@ article .card-title {
 
 .img-w {
   max-width: 15rem;
-  border: none;
+  border: 2px solid transparent;
   margin-top: 4px;
 }
 
@@ -74,7 +72,7 @@ article .card-title {
 }
 
 .img-w:hover {
-  border: solid silver;
+  border-color: silver;
 
   .btn-visible {
     display: inline-block;

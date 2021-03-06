@@ -1,10 +1,13 @@
 <template>
-  <div class="about">
-    <h4>
-      „Autentyzm, szczerość, pozytywna energia w bu­­dowaniu firmy to wartości, które od samego początku stanowią o naszym charakterze oraz całej naszej działalności”.
-    </h4>
+  <div class="container about">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula erat ex, eget rhoncus arcu dapibus commodo. Aliquam ac dignissim nunc, faucibus dictum ante. Sed eleifend elit ut est iaculis, et consectetur lacus varius. Nam interdum, sem nec convallis laoreet, est erat convallis mi, vestibulum rutrum justo ipsum sit amet justo. Morbi vitae varius mauris. Etiam sed odio imperdiet, dapibus lacus nec, scelerisque purus. Sed laoreet a risus vel volutpat.</p>
+
+    <p>Vivamus a ligula sed ligula tempus molestie vel et diam. Donec non efficitur leo, ut dictum neque. Duis tristique enim in pulvinar interdum. Vivamus ac nulla interdum, auctor massa nec, iaculis magna. Pellentesque arcu felis, luctus vel scelerisque non, congue ut nunc. Phasellus leo ligula, tincidunt eu vehicula in, egestas nec tellus. Maecenas fermentum, nibh condimentum euismod semper, lectus quam fringilla velit, eget convallis orci enim sed quam. Mauris viverra sem at arcu varius congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas dictum dui nibh, a feugiat nisi vestibulum vel. Nunc at ante mauris. Aliquam bibendum purus vel fermentum maximus. Ut in lectus ac eros convallis interdum. Praesent accumsan, lorem fermentum sollicitudin tincidunt, felis nisi ultrices dolor, eget gravida libero metus eget ante. Quisque ornare vulputate faucibus.</p>
+
+    <p>Phasellus in nunc arcu. Duis lorem lacus, pharetra eget pretium nec, efficitur quis nunc. Phasellus at urna sagittis, fermentum nibh vel, tempor ligula. Integer maximus id eros eu maximus. Nunc imperdiet tellus dolor, ac convallis mi scelerisque in. Suspendisse potenti. Nullam a diam at arcu gravida faucibus a vel mi. Pellentesque feugiat urna at elit lobortis, vel hendrerit erat pretium. Mauris semper odio ut leo posuere vestibulum. Nunc vitae cursus tellus, vitae finibus nulla.</p>
+
+    <p>Pellentesque ut dignissim arcu, in dictum mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse id pellentesque magna. Nam eget euismod lorem. Maecenas in molestie velit. Aliquam et nisl lobortis, tempus neque non, vulputate lorem. Nulla facilisi.</p>
+
+    <p>Fusce bibendum, nunc sed scelerisque molestie, elit erat bibendum ligula, in lobortis nulla nisi in nisi. Ut venenatis erat mollis posuere semper. Maecenas vestibulum pretium nibh, sed sagittis leo. Pellentesque et iaculis metus. Duis sodales fringilla elit, ut varius massa. Cras consequat justo diam, in bibendum purus mattis eu. Sed non eros id mauris euismod rutrum. Maecenas tempor sed dui vel aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam nec metus dictum, dapibus elit vel, gravida magna.</p>
   </div>
 </template>
-<style lang="scss">
-
-</style>

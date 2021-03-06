@@ -2,7 +2,7 @@
   <li class="category-list">
     <a
       class="category-name"
-      @mouseover="changeClass"
+      @click="changeClass"
     >
       <router-link
         :to="`/category/${item.id}`"

@@ -165,7 +165,7 @@ export default {
   .one-image { width: 50%; }
 
   .carousel {
-    background: $sweet;
+    background: $baseColor;
   }
 
   .photo-carousel {

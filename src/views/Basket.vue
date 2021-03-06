@@ -3,9 +3,9 @@
     <h1>koszyk</h1>
     <template v-if="products">
       <b-row
-        v-for="item in getProductsForBasket"
-        :key="item.productId"
-        class="border rounded my-2 p-2 sweet-col"
+        v-for="product in getProductsForBasket"
+        :key="product.productId"
+        class="border rounded my-2 p-2 baseColor-col"
       >
         <b-col class="m-auto">
           <img
@@ -105,8 +105,8 @@ export default {
     color: black;
   }
 
-  .sweet-col {
-    background-color: $sweet;
+  .baseColor-col {
+    background-color: $baseColor;
   }
 
   .btn-bg {

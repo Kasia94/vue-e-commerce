@@ -23,12 +23,12 @@ const routes = [
     name: 'Category',
     component: () => import(/* webpackChunkName: "category" */ '../views/Category.vue'),
     children: [
+      // {
+      //   path: '/',
+      //   component: () => import(/* webpackChunkName: "category" */ '../components/CategoryNotSelected.vue')
+      // },
       {
-        path: '/',
-        component: () => import(/* webpackChunkName: "category" */ '../components/CategoryNotSelected.vue')
-      },
-      {
-        path: ':id',
+        path: ':id?',
         props: route => ({ id: Number(route.params.id) || null }),
         component: () => import(/* webpackChunkName: "category" */ '../components/ProductsList.vue')
       }
@@ -62,6 +62,9 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
 })
 export default router
